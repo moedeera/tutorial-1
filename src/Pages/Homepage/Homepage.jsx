@@ -2,7 +2,8 @@ import { useContext, useState } from "react";
 import { siteContext } from "../../Context/Context";
 
 export const Homepage = () => {
-  const { count, setCount } = useContext(siteContext);
+  const { count, setCount, countNoStorage, setCountNoStorage } =
+    useContext(siteContext);
 
   const [localCount, setLocalCount] = useState(1);
 
@@ -12,6 +13,7 @@ export const Homepage = () => {
       <div>
         {" "}
         <h1>global count:{count}</h1>
+        <h2>with local Storage</h2>
         <button
           onClick={() => {
             setCount(count + 1);
@@ -22,7 +24,19 @@ export const Homepage = () => {
       </div>
       <div>
         {" "}
-        <h1>local count:{localCount}</h1>
+        <h1>global count:{countNoStorage}</h1>
+        <h2>no local storage</h2>
+        <button
+          onClick={() => {
+            setCountNoStorage(countNoStorage + 1);
+          }}
+        >
+          Increment
+        </button>
+      </div>
+      <div>
+        {" "}
+        <h1>local count A:{localCount}</h1>
         <button
           onClick={() => {
             setLocalCount(localCount + 1);

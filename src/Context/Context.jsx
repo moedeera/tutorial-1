@@ -11,9 +11,9 @@ const fetchCurrentPageName = () => {
 };
 
 const fetchGlobalCount = () => {
-  const globalCount = localStorage.getItem("globalCount");
+  let globalCount = localStorage.getItem("globalCount");
   if (!globalCount) {
-    return 1;
+    return parseInt(1, 10);
   }
   return parseInt(globalCount, 10);
 };
@@ -26,11 +26,12 @@ export const SiteContextProvider = ({ children }) => {
   const [navLinks, setNavLinks] = useState([
     { id: 1, name: "Home", link: "/" },
     { id: 2, name: "About", link: "/about" },
-    { id: 3, name: "Login", link: "/login" },
+    { id: 3, name: "Log", link: "/log" },
   ]);
 
   const [count, setCount] = useState(globalCount);
   const [page, setPage] = useState(currentPage);
+  const [countNoStorage, setCountNoStorage] = useState(1);
 
   useEffect(() => {
     localStorage.setItem("globalCount", count.toString());
@@ -47,6 +48,8 @@ export const SiteContextProvider = ({ children }) => {
         setCount,
         page,
         setPage,
+        countNoStorage,
+        setCountNoStorage,
       }}
     >
       {children}

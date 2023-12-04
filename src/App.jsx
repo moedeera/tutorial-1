@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { SiteContextProvider } from "./Context/Context";
 
 import { Homepage } from "./Pages/Homepage/Homepage";
-import { LoginPage } from "./Pages/LoginPage/LoginPage";
+import { LogPage } from "./Pages/LoginPage/LogPage";
 import { AboutPage } from "./Pages/AboutPage/AboutPage";
 import { Footer } from "./Components/Footer/Footer";
 import { Navbar } from "./Components/Navbar/Navbar";
@@ -15,7 +15,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/log" element={<LogPage />} />
             <Route path="/about" element={<AboutPage />} />
           </Routes>
           <Footer />
